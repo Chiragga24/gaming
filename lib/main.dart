@@ -121,8 +121,8 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
-              height: MediaQuery.of(context).size.height * 0.35,
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+              height: MediaQuery.of(context).size.height * 0.25,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: numbers.length,
@@ -144,81 +144,159 @@ class _MyHomePageState extends State<MyHomePage> {
                   }),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 12.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  new FloatingActionButton(
-                    backgroundColor: Colors.purple,
-                    onPressed: () {},
-                    child: Text("Arcade"),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
+              child: Card(
+                elevation: 2.0,
+                color: Colors.blue,
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [ Text("CATEGORIES", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, ),)]),
+                      SizedBox(
+                        height: 5.0,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+
+                          Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                new FloatingActionButton(
+                                  backgroundColor: Colors.purple,
+                                  onPressed: () {},
+                                  child: Icon(Icons.access_time),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text("Arcade")
+                              ]
+                          ),
+                          Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                new FloatingActionButton(
+                                  backgroundColor: Colors.purple,
+                                  onPressed: () {},
+                                  child: Icon(Icons.access_time),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text("Arcade")
+                              ]
+                          ),
+                          Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                new FloatingActionButton(
+                                  backgroundColor: Colors.purple,
+                                  onPressed: () {},
+                                  child: Icon(Icons.access_time),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text("Arcade")
+                              ]
+                          ),
+                          Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                new FloatingActionButton(
+                                  backgroundColor: Colors.purple,
+                                  onPressed: () {},
+                                  child: Icon(Icons.access_time),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text("Arcade")
+                              ]
+                          ),
+                        ],
+                      ),
+                    ]
                   ),
-                  new FloatingActionButton(
-                    backgroundColor: Colors.purple,
-                    onPressed: () {},
-                    child: Text("Arcade"),
-                  ),
-                  new FloatingActionButton(
-                    backgroundColor: Colors.purple,
-                    onPressed: () {},
-                    child: Text("Arcade"),
-                  ),
-                  new FloatingActionButton(
-                    backgroundColor: Colors.purple,
-                    onPressed: () {},
-                    child: Text("Arcade"),
-                  ),
-                ],
+                ),
               ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.03,
+
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text("New Releases", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),)
+                  ],),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(16, 2, 16, 8),
+                  height: MediaQuery.of(context).size.height * 0.14,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: numbers.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          width: MediaQuery.of(context).size.width * 0.46,
+                          child: Card(
+                            color: Colors.white,
+                            child: Container(
+                              child: Center(
+                                  child: Text(
+                                    numbers[index].toString(),
+                                    style:
+                                    TextStyle(color: Colors.blue, fontSize: 36.0),
+                                  )),
+                            ),
+                          ),
+                        );
+                      }),
+                ),
+              ]
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              height: MediaQuery.of(context).size.height * 0.15,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: numbers.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width * 0.46,
-                      child: Card(
-                        color: Colors.white,
-                        child: Container(
-                          child: Center(
-                              child: Text(
-                                numbers[index].toString(),
-                                style:
-                                TextStyle(color: Colors.blue, fontSize: 36.0),
-                              )),
-                        ),
-                      ),
-                    );
-                  }),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              height: MediaQuery.of(context).size.height * 0.15,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: numbers.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width * 0.46,
-                      child: Card(
-                        color: Colors.white,
-                        child: Container(
-                          child: Center(
-                              child: Text(
-                                numbers[index].toString(),
-                                style:
-                                TextStyle(color: Colors.blue, fontSize: 36.0),
-                              )),
-                        ),
-                      ),
-                    );
-                  }),
+
+            Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text("Recommended For You", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),)
+                      ],),
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(16, 2, 16, 8),
+                    height: MediaQuery.of(context).size.height * 0.14,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: numbers.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            width: MediaQuery.of(context).size.width * 0.46,
+                            child: Card(
+                              color: Colors.white,
+                              child: Container(
+                                child: Center(
+                                    child: Text(
+                                      numbers[index].toString(),
+                                      style:
+                                      TextStyle(color: Colors.blue, fontSize: 36.0),
+                                    )),
+                              ),
+                            ),
+                          );
+                        }),
+                  ),
+                ]
             ),
           ],
         ),
