@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scroll_snap_list/scroll_snap_list.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,6 +29,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<int> numbers = [1, 2, 3, 5, 8, 13, 21, 34, 55];
+  int _focusedIndex = 0;
+  void _onItemFocus(int index) {
+    setState(() {
+      _focusedIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,28 +127,47 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-              height: MediaQuery.of(context).size.height * 0.25,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: numbers.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: Card(
-                        color: Colors.white,
-                        child: Container(
-                          child: Center(
-                              child: Text(
-                                numbers[index].toString(),
-                                style:
-                                TextStyle(color: Colors.blue, fontSize: 36.0),
-                              )),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(24.0,8.0,0.0,0.0),
+                  child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [ Text("POPULAR THIS WEEK", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, ),)]),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                  height: MediaQuery.of(context).size.height * 0.25,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: ScrollSnapList(
+                          onItemFocus: _onItemFocus,
+                          itemCount: numbers.length,
+                          itemSize: 150,
+                          dynamicItemSize: true,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              width: MediaQuery.of(context).size.width * 0.6,
+                              child: Card(
+                                color: Colors.white,
+                                child: Container(
+                                  child: Center(
+                                      child: Text(
+                                        numbers[index].toString(),
+                                        style:
+                                        TextStyle(color: Colors.blue, fontSize: 36.0),
+                                      )),
+                                ),
+                              ),
+                            );
+                          }
                         ),
-                      ),
-                    );
-                  }),
+                          ),
+                    ],
+                  ),
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
@@ -157,7 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [ Text("CATEGORIES", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, ),)]),
                       SizedBox(
-                        height: 5.0,
+                        height: 3.0,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -172,7 +198,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   child: Icon(Icons.access_time),
                                 ),
                                 SizedBox(
-                                  height: 5,
+                                  height: 3,
                                 ),
                                 Text("Arcade")
                               ]
@@ -186,7 +212,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   child: Icon(Icons.access_time),
                                 ),
                                 SizedBox(
-                                  height: 5,
+                                  height: 3,
                                 ),
                                 Text("Arcade")
                               ]
@@ -200,7 +226,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   child: Icon(Icons.access_time),
                                 ),
                                 SizedBox(
-                                  height: 5,
+                                  height: 3,
                                 ),
                                 Text("Arcade")
                               ]
@@ -214,7 +240,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   child: Icon(Icons.access_time),
                                 ),
                                 SizedBox(
-                                  height: 5,
+                                  height: 3,
                                 ),
                                 Text("Arcade")
                               ]
