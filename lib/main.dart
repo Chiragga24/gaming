@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -30,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final List<int> numbers = [1, 2, 3, 5, 8, 13, 21, 34, 55];
   int _focusedIndex = 0;
+  int _index = 0;
   void _onItemFocus(int index) {
     setState(() {
       _focusedIndex = index;
@@ -141,27 +143,25 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Column(
                     children: [
                       Expanded(
-                        child: ScrollSnapList(
-                          onItemFocus: _onItemFocus,
-                          itemCount: numbers.length,
-                          itemSize: 150,
-                          dynamicItemSize: true,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              width: MediaQuery.of(context).size.width * 0.6,
+                        child: PageView.builder(
+                          itemCount: 10,
+                          controller: PageController(viewportFraction: 0.7),
+                          onPageChanged: (int index) => setState(() => _index = index),
+                          itemBuilder: (_, i) {
+                            return Transform.scale(
+                              scale: i == _index ? 1 : 0.9,
                               child: Card(
-                                color: Colors.white,
-                                child: Container(
-                                  child: Center(
-                                      child: Text(
-                                        numbers[index].toString(),
-                                        style:
-                                        TextStyle(color: Colors.blue, fontSize: 36.0),
-                                      )),
+                                elevation: 6,
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                child: Center(
+                                  child: Text(
+                                    "Game ${i + 1}",
+                                    style: TextStyle(fontSize: 32),
+                                  ),
                                 ),
                               ),
                             );
-                          }
+                          },
                         ),
                           ),
                     ],
