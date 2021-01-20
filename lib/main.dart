@@ -144,13 +144,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       Expanded(
                         child: PageView.builder(
-                          itemCount: 10,
-                          controller: PageController(viewportFraction: 0.7),
+
+                          itemCount: numbers.length,
+                          controller: PageController(viewportFraction: 0.7, initialPage: ((numbers.length)/2).toInt()),
                           onPageChanged: (int index) => setState(() => _index = index),
                           itemBuilder: (_, i) {
                             return Transform.scale(
                               scale: i == _index ? 1 : 0.9,
                               child: Card(
+                                color: Colors.blue[900],
                                 elevation: 6,
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                                 child: Center(
@@ -193,9 +195,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 new FloatingActionButton(
-                                  backgroundColor: Colors.purple,
+                                  backgroundColor: Colors.white,
                                   onPressed: () {},
-                                  child: Icon(Icons.access_time),
+                                  child: Icon(Icons.access_time, color: Colors.black,),
                                 ),
                                 SizedBox(
                                   height: 3,
@@ -207,9 +209,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 new FloatingActionButton(
-                                  backgroundColor: Colors.purple,
+                                  backgroundColor: Colors.white,
                                   onPressed: () {},
-                                  child: Icon(Icons.access_time),
+                                  child: Icon(Icons.access_time, color: Colors.black),
                                 ),
                                 SizedBox(
                                   height: 3,
@@ -221,9 +223,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 new FloatingActionButton(
-                                  backgroundColor: Colors.purple,
+                                  backgroundColor: Colors.white,
                                   onPressed: () {},
-                                  child: Icon(Icons.access_time),
+                                  child: Icon(Icons.access_time, color: Colors.black),
                                 ),
                                 SizedBox(
                                   height: 3,
@@ -235,9 +237,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 new FloatingActionButton(
-                                  backgroundColor: Colors.purple,
+                                  backgroundColor: Colors.white,
                                   onPressed: () {},
-                                  child: Icon(Icons.access_time),
+                                  child: Icon(Icons.access_time, color: Colors.black),
                                 ),
                                 SizedBox(
                                   height: 3,
