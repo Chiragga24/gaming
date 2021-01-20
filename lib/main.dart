@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'search.dart';
 
+
 void main() {
   runApp(MyApp());
 }
@@ -93,18 +94,29 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
-              child: Text('Drawer Header'),
-              decoration: BoxDecoration(
-                color: Colors.blue,
+            Container(
+              height: MediaQuery.of(context).size.height*0.16,
+              child: DrawerHeader(
+                child: Text('Drawer Header', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
               ),
             ),
             ListTile(
-              title: Text('Item 1'),
+              title: Text('Item 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
               onTap: () {},
             ),
             ListTile(
-              title: Text('Item 2'),
+              title: Text('Item 2',style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text('Item 3',style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text('Item 4',style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
               onTap: () {},
             ),
           ],
