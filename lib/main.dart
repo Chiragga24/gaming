@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scroll_snap_list/scroll_snap_list.dart';
+import 'search.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,6 +30,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<int> numbers = [1, 2, 3, 5, 8, 13, 21, 34, 55];
+  final List<String> games = ["Game1","Game2","Game3","Game4","Game5","Game6","Game7"];
   int _focusedIndex = 0;
   int _index = 0;
   void _onItemFocus(int index) {
@@ -118,9 +119,12 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding:
             const EdgeInsets.symmetric(vertical: 0.0, horizontal: 16.0),
-            child: Icon(
-              Icons.search,
-              size: 26.0,
+            child: IconButton(
+              icon: Icon(Icons.search),
+              iconSize: 26.0,
+              onPressed: () {
+                showSearch(context: context, delegate: Search(games));
+              },
             ),
           ),
         ],
@@ -144,7 +148,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       Expanded(
                         child: PageView.builder(
-
                           itemCount: numbers.length,
                           controller: PageController(viewportFraction: 0.7, initialPage: ((numbers.length)/2).toInt()),
                           onPageChanged: (int index) => setState(() => _index = index),
