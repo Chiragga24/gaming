@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:gaming/start.dart';
 
 import 'main.dart';
 
@@ -43,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => MyHomePage(title: "Gaming App",),
+        builder: (context) => Startpage(),
       ),
     );
   }
@@ -52,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => MyHomePage(title: "Gaming App",),
+        builder: (context) => Startpage(),
       ),
     );
   }
