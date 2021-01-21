@@ -83,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
         height: 90,
         width: 70,
         child: new FloatingActionButton(
+          heroTag: "btn5",
           backgroundColor: Colors.purple,
           onPressed: () {},
           child: Icon(Icons.person),
@@ -210,6 +211,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 new FloatingActionButton(
+                                  heroTag: "btn1",
                                   backgroundColor: Colors.white,
                                   onPressed: () {},
                                   child: Icon(Icons.access_time, color: Colors.black,),
@@ -224,6 +226,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 new FloatingActionButton(
+                                  heroTag: "btn2",
                                   backgroundColor: Colors.white,
                                   onPressed: () {},
                                   child: Icon(Icons.access_time, color: Colors.black),
@@ -238,6 +241,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 new FloatingActionButton(
+                                  heroTag: "btn3",
                                   backgroundColor: Colors.white,
                                   onPressed: () {},
                                   child: Icon(Icons.access_time, color: Colors.black),
@@ -252,6 +256,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 new FloatingActionButton(
+                                  heroTag: "btn4",
                                   backgroundColor: Colors.white,
                                   onPressed: () {},
                                   child: Icon(Icons.access_time, color: Colors.black),
