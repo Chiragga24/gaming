@@ -67,4 +67,3 @@ class Search extends SearchDelegate {
   }
 }
   
-}
