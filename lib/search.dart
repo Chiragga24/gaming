@@ -41,14 +41,21 @@ class Search extends SearchDelegate {
     return ListView.builder(
       itemCount: suggestionList.length,
       itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(
-            suggestionList[index],
-          ),
-          onTap: (){
-            selectedtext = suggestionList[index];
-            showResults(context);
-          },
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Hero(tag: 'item$index', 
+            child: new ListTile(
+              title: Text(
+                suggestionList[index],
+              ),
+              onTap: (){
+                selectedtext = suggestionList[index];
+                showResults(context);
+              },
+            ))
+          ],
         );
       },
       );
