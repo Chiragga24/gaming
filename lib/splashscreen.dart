@@ -24,13 +24,13 @@ class _SplashScreenState extends State<SplashScreen> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.blueGrey[800],
+        backgroundColor: Color.fromRGBO(57, 62, 70, 10),
         body: Center(
             child: ClipOval(
               child: Image.asset(
                 "assets/logo.png",
-                height: 200,
-                width: 200,
+                height: 400,
+                width: 400,
                 fit: BoxFit.cover,
               ),
             ),
