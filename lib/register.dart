@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'otpSignUp.dart';
+
 
 class RegisterPage extends StatelessWidget {
   @override
