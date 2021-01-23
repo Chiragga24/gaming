@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gaming/main.dart';
-import 'login.dart';
 import 'register.dart';
 import 'package:flutter/services.dart';
 
