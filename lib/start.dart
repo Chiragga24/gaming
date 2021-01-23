@@ -136,10 +136,20 @@ class Startpage extends StatelessWidget {
               new Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [ 
-                            Padding(
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                              builder: (context) =>RegisterPage(),
+                            ));
+                              },
+                              child: Padding(
                               padding: const EdgeInsets.symmetric(horizontal: 0.0,vertical: 5.0),
                               child: Text("Sign Up", style: TextStyle( fontSize: 30,fontWeight: FontWeight.bold, color: Colors.white),),
-                            )]
+                            )
+                            )
+                            ]
               ),
               new Row(
                           mainAxisAlignment: MainAxisAlignment.center,
