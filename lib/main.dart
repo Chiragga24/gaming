@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gaming/splashscreen.dart';
 import 'search.dart';
+import 'drawer.dart';
 
 
 void main() {
@@ -13,9 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      // theme: ThemeData(
+      //   primarySwatch: Color(int.parse("0xff7CEA9C"))
+      // ),
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );
@@ -43,39 +44,23 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Color.fromRGBO(57, 62, 70, 10),
       bottomNavigationBar: new BottomAppBar(
-        color: Colors.blue[900],
+        color: Color.fromRGBO(60, 65, 75, 10),
         child: new Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.backpack),
-              color: Colors.white,
-            ),
+            bottomNavigationBarButtons(Icons.shopping_cart),
             Padding(
               padding: const EdgeInsets.only(right: 40.0),
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.shopping_cart),
-                color: Colors.white,
-              ),
+              child: bottomNavigationBarButtons(Icons.message),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 40.0),
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.admin_panel_settings_rounded),
-                color: Colors.white,
-              ),
+              child: bottomNavigationBarButtons(Icons.person),
             ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.explore),
-              color: Colors.white,
-            ),
+        bottomNavigationBarButtons(Icons.backpack),
           ],
         ),
         shape: CircularNotchedRectangle(),
@@ -85,50 +70,19 @@ class _MyHomePageState extends State<MyHomePage> {
         width: 70,
         child: new FloatingActionButton(
           heroTag: "btn5",
-          backgroundColor: Colors.purple,
+          backgroundColor: Colors.white,
           onPressed: () {},
-          child: Icon(Icons.person),
+          child: Icon(Icons.home, color: Colors.black),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            Container(
-              height: MediaQuery.of(context).size.height*0.16,
-              child: DrawerHeader(
-                child: Text('Drawer Header', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-              ),
-            ),
-            ListTile(
-              title: Text('Item 1', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text('Item 2',style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text('Item 3',style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text('Item 4',style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
-              onTap: () {},
-            ),
-          ],
-        ),
-      ),
+      drawer: mainDrawer(),
       appBar: AppBar(
         elevation: 0.0,
         centerTitle: true,
         title: Text(widget.title),
-        backgroundColor: Colors.blue[900],
+        backgroundColor: Color.fromRGBO(60, 65, 75, 10),
         actions: [
           Padding(
             padding:
@@ -153,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: const EdgeInsets.fromLTRB(24.0,8.0,0.0,0.0),
                   child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            children: [ Text("POPULAR THIS WEEK", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, ),)]),
+                            children: [ Text("POPULAR THIS WEEK", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.white),)]),
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
@@ -169,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             return Transform.scale(
                               scale: i == _index ? 1 : 0.9,
                               child: Card(
-                                color: Colors.blue[900],
+                                color: Colors.white,
                                 elevation: 6,
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                                 child: Center(
@@ -191,8 +145,8 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
               child: Card(
-                elevation: 2.0,
-                color: Colors.blue,
+                elevation: 0,
+                color: Color.fromRGBO(57, 62, 70, 10),
                 child: Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Column(
@@ -200,74 +154,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: [ Text("CATEGORIES", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, ),)]),
+                          children: [ Text("CATEGORIES", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.white ),)]),
                       SizedBox(
                         height: 3.0,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-
-                          Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                new FloatingActionButton(
-                                  heroTag: "btn1",
-                                  backgroundColor: Colors.white,
-                                  onPressed: () {},
-                                  child: Icon(Icons.access_time, color: Colors.black,),
-                                ),
-                                SizedBox(
-                                  height: 3,
-                                ),
-                                Text("Arcade")
-                              ]
-                          ),
-                          Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                new FloatingActionButton(
-                                  heroTag: "btn2",
-                                  backgroundColor: Colors.white,
-                                  onPressed: () {},
-                                  child: Icon(Icons.access_time, color: Colors.black),
-                                ),
-                                SizedBox(
-                                  height: 3,
-                                ),
-                                Text("Arcade")
-                              ]
-                          ),
-                          Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                new FloatingActionButton(
-                                  heroTag: "btn3",
-                                  backgroundColor: Colors.white,
-                                  onPressed: () {},
-                                  child: Icon(Icons.access_time, color: Colors.black),
-                                ),
-                                SizedBox(
-                                  height: 3,
-                                ),
-                                Text("Arcade")
-                              ]
-                          ),
-                          Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                new FloatingActionButton(
-                                  heroTag: "btn4",
-                                  backgroundColor: Colors.white,
-                                  onPressed: () {},
-                                  child: Icon(Icons.access_time, color: Colors.black),
-                                ),
-                                SizedBox(
-                                  height: 3,
-                                ),
-                                Text("Arcade")
-                              ]
-                          ),
+                        children: <Widget>[
+                          categoryWidget("Arcade", (Icons.alarm), "btn1"),
+                          categoryWidget("Mystery", (Icons.alarm), "btn2"),
+                          categoryWidget("Puzzle", (Icons.alarm), "btn3"),
+                          categoryWidget("Adventure",(Icons.alarm), "btn4"),
                         ],
                       ),
                     ]
@@ -283,7 +180,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text("New Releases", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),)
+                    Text("New Releases", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.white),)
                   ],),
                 ),
                 Container(
@@ -319,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text("Recommended For You", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),)
+                        Text("Recommended For You", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.white),)
                       ],),
                   ),
                   Container(
@@ -353,3 +250,43 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+class bottomNavigationBarButtons extends StatelessWidget {
+  final IconData iconWidget;
+  bottomNavigationBarButtons(this.iconWidget){}
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {},
+      icon: Icon(iconWidget),
+      color: Colors.white,
+    );
+  }
+}
+
+
+class categoryWidget extends StatelessWidget {
+  final String text;
+  final IconData iconWidget;
+  final String tag;
+  categoryWidget(this.text, this.iconWidget, this.tag){}
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          new FloatingActionButton(
+            heroTag: tag,
+            backgroundColor: Colors.white,
+            onPressed: () {},
+            child: Icon(iconWidget, color: Colors.black),
+          ),
+          SizedBox(
+            height: 3,
+          ),
+          Text(text, style: TextStyle(color: Colors.white),)
+        ]
+    );
+  }
+}
+
