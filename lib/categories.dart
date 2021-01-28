@@ -1,38 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:gaming/categories.dart';
-import 'package:gaming/splashscreen.dart';
-import 'search.dart';
+import 'main.dart';
 import 'drawer.dart';
+import 'search.dart';
 
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      // theme: ThemeData(
-      //   primarySwatch: Color(int.parse("0xff7CEA9C"))
-      // ),
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class Categories extends StatefulWidget {
+  Categories({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _CategoriesState createState() => _CategoriesState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _CategoriesState extends State<Categories> {
   final List<int> numbers = [1, 2, 3, 5, 8, 13, 21, 34, 55];
   final List<String> games = ["Game1","Game2","Game3","Game4","Game5","Game6","Game7"];
   int _focusedIndex = 0;
@@ -73,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
           heroTag: "btn5",
           backgroundColor: Colors.white,
           onPressed: () {
-            Navigator.push(
+                        Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => MyHomePage(title: "My Gaming App"),
@@ -87,8 +66,6 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: mainDrawer(),
       appBar: AppBar(
         elevation: 0.0,
-        centerTitle: true,
-        title: Text(widget.title),
         backgroundColor: Color.fromRGBO(60, 65, 75, 10),
         actions: [
           Padding(
@@ -111,10 +88,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(24.0,8.0,0.0,0.0),
+                  padding: const EdgeInsets.fromLTRB(0.0,8.0,0.0,0.0),
                   child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [ Text("POPULAR THIS WEEK", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.white),)]),
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [ Text("Hot in ${widget.title}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),)]),
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
@@ -149,37 +126,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
-              child: Card(
-                elevation: 0,
-                color: Color.fromRGBO(57, 62, 70, 10),
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [ Text("CATEGORIES", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.white ),)]),
-                      SizedBox(
-                        height: 3.0,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          categoryWidget("Arcade", (Icons.alarm), "btn1"),
-                          categoryWidget("Mystery", (Icons.alarm), "btn2"),
-                          categoryWidget("Puzzle", (Icons.alarm), "btn3"),
-                          categoryWidget("Adventure",(Icons.alarm), "btn4"),
-                        ],
-                      ),
-                    ]
-                  ),
-                ),
-              ),
-            ),
-
             Column(
               children: [
                 Padding(
@@ -215,7 +161,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ]
             ),
-
             Column(
                 children: [
                   Padding(
@@ -251,55 +196,44 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ]
             ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text("Popular Last Month", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.white),)
+                  ],),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(16, 2, 16, 8),
+                  height: MediaQuery.of(context).size.height * 0.14,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: numbers.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          width: MediaQuery.of(context).size.width * 0.46,
+                          child: Card(
+                            color: Colors.white,
+                            child: Container(
+                              child: Center(
+                                  child: Text(
+                                    numbers[index].toString(),
+                                    style:
+                                    TextStyle(color: Colors.blue, fontSize: 36.0),
+                                  )),
+                            ),
+                          ),
+                        );
+                      }),
+                ),
+              ]
+            ),
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
-
-class bottomNavigationBarButtons extends StatelessWidget {
-  final IconData iconWidget;
-  bottomNavigationBarButtons(this.iconWidget){}
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {},
-      icon: Icon(iconWidget),
-      color: Colors.white,
-    );
-  }
-}
-
-
-class categoryWidget extends StatelessWidget {
-  final String text;
-  final IconData iconWidget;
-  final String tag;
-  categoryWidget(this.text, this.iconWidget, this.tag){}
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          new FloatingActionButton(
-            heroTag: tag,
-            backgroundColor: Colors.white,
-            onPressed: () {
-              Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Categories(title: this.text),
-                            ));
-            },
-            child: Icon(iconWidget, color: Colors.black),
-          ),
-          SizedBox(
-            height: 3,
-          ),
-          Text(text, style: TextStyle(color: Colors.white),)
-        ]
-    );
-  }
-}
-
