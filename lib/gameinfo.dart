@@ -3,15 +3,15 @@ import 'main.dart';
 import 'drawer.dart';
 import 'search.dart';
 
-class Categories extends StatefulWidget {
-  Categories({Key key, this.title}) : super(key: key);
+class GameInfo extends StatefulWidget {
+  GameInfo({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _CategoriesState createState() => _CategoriesState();
+  _GameInfoState createState() => _GameInfoState();
 }
 
-class _CategoriesState extends State<Categories> {
+class _GameInfoState extends State<GameInfo> {
   final List<int> numbers = [1, 2, 3, 5, 8, 13, 21, 34, 55];
   final List<String> games = ["Game1","Game2","Game3","Game4","Game5","Game6","Game7"];
   int _focusedIndex = 0;
@@ -91,7 +91,7 @@ class _CategoriesState extends State<Categories> {
                   padding: const EdgeInsets.fromLTRB(0.0,8.0,0.0,0.0),
                   child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [ Text("Hot in ${widget.title}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),)]),
+                            children: [ Text("${widget.title}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),)]),
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
@@ -112,7 +112,7 @@ class _CategoriesState extends State<Categories> {
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                                 child: Center(
                                   child: Text(
-                                    "Game ${i + 1}",
+                                    "${widget.title}",
                                     style: TextStyle(fontSize: 32),
                                   ),
                                 ),
@@ -125,115 +125,7 @@ class _CategoriesState extends State<Categories> {
                   ),
                 ),
               ],
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text("New Releases", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.white),)
-                  ],),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(16, 2, 16, 8),
-                  height: MediaQuery.of(context).size.height * 0.14,
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: numbers.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          width: MediaQuery.of(context).size.width * 0.46,
-                          child: Card(
-                            color: Colors.white,
-                            child: Container(
-                              child: Center(
-                                  child: Text(
-                                    numbers[index].toString(),
-                                    style:
-                                    TextStyle(color: Colors.blue, fontSize: 36.0),
-                                  )),
-                            ),
-                          ),
-                        );
-                      }),
-                ),
-              ]
-            ),
-            Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text("Recommended For You", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.white),)
-                      ],),
-                  ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(16, 2, 16, 8),
-                    height: MediaQuery.of(context).size.height * 0.14,
-                    child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: numbers.length,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            width: MediaQuery.of(context).size.width * 0.46,
-                            child: Card(
-                              color: Colors.white,
-                              child: Container(
-                                child: Center(
-                                    child: Text(
-                                      numbers[index].toString(),
-                                      style:
-                                      TextStyle(color: Colors.blue, fontSize: 36.0),
-                                    )),
-                              ),
-                            ),
-                          );
-                        }),
-                  ),
-                ]
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text("Popular Last Month", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.white),)
-                  ],),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(16, 2, 16, 8),
-                  height: MediaQuery.of(context).size.height * 0.14,
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: numbers.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          width: MediaQuery.of(context).size.width * 0.46,
-                          child: Card(
-                            color: Colors.white,
-                            child: Container(
-                              child: Center(
-                                  child: Text(
-                                    numbers[index].toString(),
-                                    style:
-                                    TextStyle(color: Colors.blue, fontSize: 36.0),
-                                  )),
-                            ),
-                          ),
-                        );
-                      }),
-                ),
-              ]
-            ),
-          ],
-        ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+            ), // This trailing comma makes auto-formatting nicer for build methods.
+          ])));
   }
 }

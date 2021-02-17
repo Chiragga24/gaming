@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gaming/categories.dart';
+import 'package:gaming/gameinfo.dart';
 import 'package:gaming/splashscreen.dart';
 import 'search.dart';
 import 'drawer.dart';
@@ -129,14 +130,23 @@ class _MyHomePageState extends State<MyHomePage> {
                           itemBuilder: (_, i) {
                             return Transform.scale(
                               scale: i == _index ? 1 : 0.9,
-                              child: Card(
-                                color: Colors.white,
-                                elevation: 6,
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                child: Center(
-                                  child: Text(
-                                    "Game ${i + 1}",
-                                    style: TextStyle(fontSize: 32),
+                              child: GestureDetector(
+                                onTap: (){
+                                  Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                              builder: (context) => GameInfo(title: "Game ${i + 1}",),
+                            ));
+                                },
+                                  child: Card(
+                                  color: Colors.white,
+                                  elevation: 6,
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                  child: Center(
+                                    child: Text(
+                                      "Game ${i + 1}",
+                                      style: TextStyle(fontSize: 32),
+                                    ),
                                   ),
                                 ),
                               ),
