@@ -81,51 +81,110 @@ class _GameInfoState extends State<GameInfo> {
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0.0,8.0,0.0,0.0),
-                  child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [ Text("${widget.title}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),)]),
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-                  height: MediaQuery.of(context).size.height * 0.25,
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: PageView.builder(
-                          itemCount: numbers.length,
-                          controller: PageController(viewportFraction: 0.7, initialPage: ((numbers.length)/2).toInt()),
-                          onPageChanged: (int index) => setState(() => _index = index),
-                          itemBuilder: (_, i) {
-                            return Transform.scale(
-                              scale: i == _index ? 1 : 0.9,
-                              child: Card(
-                                color: Colors.white,
-                                elevation: 6,
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                child: Center(
-                                  child: Text(
-                                    "${widget.title}",
-                                    style: TextStyle(fontSize: 32),
+      body: SingleChildScrollView(
+              child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0.0,8.0,0.0,0.0),
+                    child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [ Text("${widget.title}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),)]),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                    height: MediaQuery.of(context).size.height * 0.25,
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: PageView.builder(
+                            itemCount: numbers.length,
+                            controller: PageController(viewportFraction: 0.7, initialPage: ((numbers.length)/2).toInt()),
+                            onPageChanged: (int index) => setState(() => _index = index),
+                            itemBuilder: (_, i) {
+                              return Transform.scale(
+                                scale: i == _index ? 1 : 0.9,
+                                child: Card(
+                                  color: Colors.white,
+                                  elevation: 6,
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                  child: Center(
+                                    child: Text(
+                                      "${widget.title}",
+                                      style: TextStyle(fontSize: 32),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            );
-                          },
-                        ),
+                              );
+                            },
                           ),
-                    ],
+                            ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ), // This trailing comma makes auto-formatting nicer for build methods.
-          ])));
+                ],
+              ),
+              Card(
+                color: Color.fromRGBO(57, 62, 70, 10),
+                elevation: 0.0,
+                margin: EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text("Details" , style: TextStyle(fontSize: 26 , fontWeight: FontWeight.bold , color: Colors.white), textAlign: TextAlign.center),
+                    Divider(color: Colors.white,),
+                    Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like" ,  style: TextStyle(color: Colors.white),),
+                    Divider(color: Colors.white,),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Genre:",textAlign: TextAlign.start,style: TextStyle(fontSize: 18 , color: Colors.white, fontWeight: FontWeight.bold),),
+                        Text("Arcade",textAlign: TextAlign.end,style: TextStyle(fontSize: 18 , color: Colors.white),)
+                      ],),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Genre:",textAlign: TextAlign.start,style: TextStyle(fontSize: 18 , color: Colors.white, fontWeight: FontWeight.bold),),
+                        Text("Arcade",textAlign: TextAlign.end,style: TextStyle(fontSize: 18 , color: Colors.white),)
+                      ],),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Genre:",textAlign: TextAlign.start,style: TextStyle(fontSize: 18 , color: Colors.white, fontWeight: FontWeight.bold),),
+                        Text("Arcade",textAlign: TextAlign.end,style: TextStyle(fontSize: 18 , color: Colors.white),)
+                      ],),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Genre:",textAlign: TextAlign.start,style: TextStyle(fontSize: 18 , color: Colors.white, fontWeight: FontWeight.bold),),
+                        Text("Arcade",textAlign: TextAlign.end,style: TextStyle(fontSize: 18 , color: Colors.white),)
+                      ],),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Genre:",textAlign: TextAlign.start,style: TextStyle(fontSize: 18 , color: Colors.white, fontWeight: FontWeight.bold),),
+                        Text("Arcade",textAlign: TextAlign.end,style: TextStyle(fontSize: 18 , color: Colors.white),)
+                      ],),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Genre:",textAlign: TextAlign.start,style: TextStyle(fontSize: 18 , color: Colors.white, fontWeight: FontWeight.bold),),
+                        Text("Arcade",textAlign: TextAlign.end,style: TextStyle(fontSize: 18 , color: Colors.white),)
+                      ],),
+                    
+                  ],),
+              ) // This trailing comma makes auto-formatting nicer for build methods.
+            ])),
+      ));
   }
 }
