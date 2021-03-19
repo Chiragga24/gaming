@@ -43,6 +43,12 @@ class _MyHomePageState extends State<MyHomePage> {
       _focusedIndex = index;
     });
   }
+  int _selectedIndex = null; 
+  void _onItemTapped(int index) {  
+    setState(() {  
+      _selectedIndex = index;  
+    });  
+  }  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
